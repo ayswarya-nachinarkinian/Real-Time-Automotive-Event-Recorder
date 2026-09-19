@@ -103,8 +103,8 @@ void* capture_task(void* arg) {
         current_data.gpio_2_state = (gplev0 & (1 << GPIO_PIN_2)) ? 1 : 0;
 
         // Alerts
-        if (current_data.gpio_1_state && !prev_gpio_1) printf("\n🚨 CRITICAL: AIRBAG DEPLOYED! 🚨\n\n");
-        if (current_data.gpio_2_state && !prev_gpio_2) printf("\n🛑 CRITICAL: BRAKE APPLIED! 🛑\n\n");
+        if (current_data.gpio_1_state && !prev_gpio_1) printf("\n CRITICAL: AIRBAG DEPLOYED! \n\n");
+        if (current_data.gpio_2_state && !prev_gpio_2) printf("\n CRITICAL: BRAKE APPLIED! \n\n");
         prev_gpio_1 = current_data.gpio_1_state;
         prev_gpio_2 = current_data.gpio_2_state;
 

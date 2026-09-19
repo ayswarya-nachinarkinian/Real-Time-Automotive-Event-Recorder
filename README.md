@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The **Real-Time Automotive Event Recorder** is a safety-focused embedded system developed using **QNX Neutrino RTOS and Raspberry Pi**. The primary goal of the project is to continuously monitor vehicle conditions using multiple sensors and detect critical events such as **vehicle crashes, rollovers, and fire incidents** in real time.
+The **Real-Time Automotive Event Recorder** is a safety-focused embedded system developed using **QNX Neutrino RTOS and Raspberry Pi**. The primary goal of the project is to continuously monitor vehicle conditions using multiple sensors and detect critical events such as **vehicle crashes, rollovers,airbag and fire incidents** in real time.
 
 Unlike a conventional event recorder that only stores information after an accident, this system continuously observes sensor data and identifies abnormal conditions as they occur. When a critical event is detected, the system captures the relevant sensor information along with timestamps and stores it for later analysis and accident reconstruction.
 
@@ -17,8 +17,7 @@ The project addresses this problem by creating a **real-time event recording sys
 The system uses multiple sensors to monitor different safety conditions:
 
 * **IMU Sensor:** Measures acceleration and rotational motion of the vehicle. This information is used for detecting sudden impacts and abnormal rotational movement associated with rollover conditions.
-* **Impact/Crash Sensor:** Provides an additional indication of a physical impact or collision.
-* **Fire Sensor:** Detects the presence of a fire/flame condition and generates a corresponding safety event.
+* **Temperature Sensor:** Detects the presence of a fire/flame condition due to the change in temperature and generates a corresponding safety event.
 
 Using multiple sensors allows the system to monitor different types of emergency conditions rather than relying on a single measurement.
 
@@ -29,6 +28,8 @@ The system continuously reads sensor values and compares them against predefined
 For a **crash**, sudden abnormal acceleration and impact sensor activation are analyzed to identify a collision.
 
 For a **rollover**, IMU acceleration and gyroscope measurements are analyzed to identify abnormal rotational movement and vehicle orientation.
+
+For a **airbag**, we used switches for now to indicate the crash condition.
 
 For a **fire event**, the fire sensor is continuously monitored and an event is generated when the sensor indicates a fire condition.
 
@@ -65,10 +66,9 @@ This enables the system to function as a **digital witness for the vehicle**, pr
 
 **Hardware**
 
-* Raspberry Pi 4/5
+* Raspberry Pi 4
 * IMU sensor
-* Impact/crash sensor
-* Fire sensor
+* Temperature sensor
 * Storage
 
 **Software**
